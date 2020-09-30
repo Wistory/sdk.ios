@@ -16,7 +16,6 @@ And set last avaliable version for target
 
 ```
   pod 'Wistory', '~> 0.3.0'
-  
 ```
 
 Run
@@ -27,18 +26,18 @@ pod install --repo-update
 
 ### Carthage
 
-Now instalation supports only Carthage as dependency manager. 
-To add libaray add `git "https://gitlab.com/Wistory/Wistory" ~> 0.3.0` to Cartfile with latest actual version and install as usual.
+Add `git "https://gitlab.com/Wistory/Wistory" ~> 0.3.0` to Cartfile with latest actual version and install as usual.
 
 ## Initialization
+
 Create instance of class:
 
 ```swift
-let instance = Wistory()
+let instance = Wistory(with: <company token>)
 ``` 
 
 Don't forget to provide given company token in initialization. Otherwise Wistory will be inited with demo token
-Also you can provide own user id for store favourites stories. By default it provided by us, but not works at 100% cases:
+Also you can provide own user id for managing likes/dislikes and rtc. By default it provided by us, but not works at 100% cases(phones with no SIM):
 
 ```swift
 UIDevice.current.identifierForVendor?.uuidString
@@ -47,24 +46,13 @@ UIDevice.current.identifierForVendor?.uuidString
 ### Examples of initialization  
 
 ```swift
-let instance = Wistory(token: String)
-```
-or
-```swift
-let instance = Wistory()
-.with(token: String)
-```
-or
-```swift
-let instance = Wistory()
-instance.token = token
+let instance = Wistory(with: String)
 ```
 
 Wistory support chaining init:
 ```swift
-Wistory()
+Wistory(with: "company")
   .with(userToken: "token")
-  .with(companyToken: "company")
   .presentingSettings(style: .fullscreen)
   .storiesViewController
 ```
@@ -73,14 +61,14 @@ After this framework ready to use
 
 ### Settings
 
-- `presentStyle`
+- `presentingSettings`
 
 Choose how stories will be presented. Can be `fullscreen` or `popover`
 
-- `fullscreen`
+- `usageSettings`
 
 Option for user stories root collection as embdeed in any view. Bool
-Example of usage:
+Example of usage for embdeed view:
 
 ```swift
   addChild(wistory)
@@ -98,8 +86,7 @@ Example of usage:
 ```
 
 ## Delegate
-Wistory provides handlers for most of common cases. To implement adopt `delegate` by your class
-
+Wistory provides handlers for most of common cases. To implement adopt `storiesViewController.delegate` by your class
 And confirm to `WistoryEventsDelegate` protocol
 
 ### Delegate methods
@@ -139,14 +126,3 @@ Called up after the answer choice is made in the voting. Passes the story, "snap
 - `func onError(error: Error)`
 
 Called on any error. Mostly by network layer
-
-## Usage
-
-Currently supported only one way to initialize framework. You need to get instance of our root view controller by calling `storiesViewController` property and then set to your navigation stack. **Wistory uses own navigation flow, take it in mind**
-
-Example:
-
-```swift
-let rootViewController = Wistory().storiesViewController
-self.present(rootViewController, animated: true, completion: nil)
-```
