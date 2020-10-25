@@ -14,31 +14,31 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		C8pfCa2uXIQpu5Z/F35hNtVnIBs=
+		nqVSZjA882AkdXERc8+9MLYwki4=
 		</data>
 		<key>Modules/Wistory.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo</key>
 		<data>
-		4eHYsVIQEG1uSVb1Kw+S5QJwLzY=
+		9H64IU+cV207l3dfowhK7YhYj9E=
 		</data>
 		<key>Modules/Wistory.swiftmodule/Project/arm64.swiftsourceinfo</key>
 		<data>
-		4eHYsVIQEG1uSVb1Kw+S5QJwLzY=
+		9H64IU+cV207l3dfowhK7YhYj9E=
 		</data>
 		<key>Modules/Wistory.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
-		hAsSJ3zZ295IT66DYp0hBio3GZk=
+		Nxjv9uaYj/2Z37H3JmN63w3j7t0=
 		</data>
 		<key>Modules/Wistory.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		U1YdKqY1t3TvC4k0kvaV3UWExzs=
+		2i1CZuHwTFqrwXEaNEIaTAHqPY8=
 		</data>
 		<key>Modules/Wistory.swiftmodule/arm64.swiftdoc</key>
 		<data>
-		hAsSJ3zZ295IT66DYp0hBio3GZk=
+		Nxjv9uaYj/2Z37H3JmN63w3j7t0=
 		</data>
 		<key>Modules/Wistory.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		U1YdKqY1t3TvC4k0kvaV3UWExzs=
+		2i1CZuHwTFqrwXEaNEIaTAHqPY8=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -65,42 +65,42 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			oxs0hhFpR92DBD+kuR8AX8Ejlpj+PcKBCa9clZ5cCDE=
+			czA8Ltz6cKj/WMa3Ieisk+ugHEn5oPBorDuGQYHpZV0=
 			</data>
 		</dict>
 		<key>Modules/Wistory.swiftmodule/Project/arm64.swiftsourceinfo</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			oxs0hhFpR92DBD+kuR8AX8Ejlpj+PcKBCa9clZ5cCDE=
+			czA8Ltz6cKj/WMa3Ieisk+ugHEn5oPBorDuGQYHpZV0=
 			</data>
 		</dict>
 		<key>Modules/Wistory.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			gsYlp7CsQ1WU1nTDlzVv9JB82DXV27nvrDsEIlFrfdM=
+			P0bWQEteylriuDErhnO2+Phs2Q564KNIkzZ+bAmU320=
 			</data>
 		</dict>
 		<key>Modules/Wistory.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			tfCy0iplSphMPZyQdiUvbjuEJGIMRY+XxyLYRsOIGSA=
+			CmS56T+UPZzSOrnSo74BgEcptK8DiRnTCj3J2nH+3h8=
 			</data>
 		</dict>
 		<key>Modules/Wistory.swiftmodule/arm64.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			gsYlp7CsQ1WU1nTDlzVv9JB82DXV27nvrDsEIlFrfdM=
+			P0bWQEteylriuDErhnO2+Phs2Q564KNIkzZ+bAmU320=
 			</data>
 		</dict>
 		<key>Modules/Wistory.swiftmodule/arm64.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			tfCy0iplSphMPZyQdiUvbjuEJGIMRY+XxyLYRsOIGSA=
+			CmS56T+UPZzSOrnSo74BgEcptK8DiRnTCj3J2nH+3h8=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
