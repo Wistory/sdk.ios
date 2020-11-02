@@ -218,7 +218,6 @@ SWIFT_CLASS("_TtC7Wistory18RootViewController")
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;
 @end
 
-
 @class UICollectionView;
 
 @interface RootViewController (SWIFT_EXTENSION(Wistory)) <UICollectionViewDelegate>
@@ -239,6 +238,7 @@ SWIFT_CLASS("_TtC7Wistory18RootViewController")
 - (NSInteger)collectionView:(UICollectionView * _Nonnull)collectionView numberOfItemsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
 - (UICollectionViewCell * _Nonnull)collectionView:(UICollectionView * _Nonnull)collectionView cellForItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
 @end
+
 
 
 
