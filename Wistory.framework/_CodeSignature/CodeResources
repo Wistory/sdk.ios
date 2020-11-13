@@ -14,15 +14,15 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		qjv2gp4myXQdwF4gURwy54+UjMg=
+		229huYQ18GOYsefIwSVL/M+BEK8=
 		</data>
 		<key>Modules/Wistory.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo</key>
 		<data>
-		ORmSAUGaOcw5QujrZpfdbFeVdDc=
+		Wwp1PyGQDWghKYOgYAxGkBBUgBY=
 		</data>
 		<key>Modules/Wistory.swiftmodule/Project/arm64.swiftsourceinfo</key>
 		<data>
-		ORmSAUGaOcw5QujrZpfdbFeVdDc=
+		Wwp1PyGQDWghKYOgYAxGkBBUgBY=
 		</data>
 		<key>Modules/Wistory.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
@@ -30,7 +30,7 @@
 		</data>
 		<key>Modules/Wistory.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		Jx/9dRYV4KD7c4BcRBjCGst+lug=
+		DZD4WFRYzKuiVyqswwHwa5CWBUM=
 		</data>
 		<key>Modules/Wistory.swiftmodule/arm64.swiftdoc</key>
 		<data>
@@ -38,7 +38,7 @@
 		</data>
 		<key>Modules/Wistory.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		Jx/9dRYV4KD7c4BcRBjCGst+lug=
+		DZD4WFRYzKuiVyqswwHwa5CWBUM=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -65,14 +65,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			WdT1lamDbYY8y6msaCd7ZvsXxCYSBdhMarmxi0u3D+k=
+			MyAdUS2Vi4lKtgFpr/NP30aypWEH8+0Qc8QB2X/Wuhk=
 			</data>
 		</dict>
 		<key>Modules/Wistory.swiftmodule/Project/arm64.swiftsourceinfo</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			WdT1lamDbYY8y6msaCd7ZvsXxCYSBdhMarmxi0u3D+k=
+			MyAdUS2Vi4lKtgFpr/NP30aypWEH8+0Qc8QB2X/Wuhk=
 			</data>
 		</dict>
 		<key>Modules/Wistory.swiftmodule/arm64-apple-ios.swiftdoc</key>
@@ -86,7 +86,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			OGOYE3IcD/qW0/ArOepap6ESlKAblWxLpjdw0vF4hpg=
+			tKOz0sXDvCq9m7Vuo59XFhSQDK8Fdo6iPhGUW72fidw=
 			</data>
 		</dict>
 		<key>Modules/Wistory.swiftmodule/arm64.swiftdoc</key>
@@ -100,7 +100,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			OGOYE3IcD/qW0/ArOepap6ESlKAblWxLpjdw0vF4hpg=
+			tKOz0sXDvCq9m7Vuo59XFhSQDK8Fdo6iPhGUW72fidw=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
