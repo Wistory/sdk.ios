@@ -1,0 +1,97 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.3 (swiftlang-1200.0.29.2 clang-1200.0.30.1)
+// swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name Wistory
+import AVFoundation
+import AVKit
+import DeviceCheck
+import Foundation
+import Nuke
+import Swift
+import UIKit
+import WebKit
+@_exported import Wistory
+extension UIImage {
+  public func maskWithColor(color: UIKit.UIColor) -> UIKit.UIImage
+}
+public protocol RootViewDelegate : AnyObject {
+  func onItemsLoaded()
+  func onRead(story: Wistory.SnapModel)
+  func onPrevSnap(story: Wistory.SnapModel)
+  func onNextSnap(story: Wistory.SnapModel)
+  func onNavigate(action: Swift.String?, value: Swift.String)
+  func onFavorite(id: Swift.String, isFavorite: Swift.Bool)
+  func onRelation(id: Swift.String, relation: Swift.String)
+  func onPoll(id: Swift.String, snap: Swift.Int, option: Swift.String)
+  func onError(error: Swift.Error)
+}
+@objc @_hasMissingDesignatedInitializers public class RootViewController : UIKit.UIViewController {
+  weak public var delegate: Wistory.RootViewDelegate?
+  public init(usageStyle: Wistory.StyleSettings)
+  @objc override dynamic public func viewDidLoad()
+  @objc deinit
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+}
+extension RootViewController : UIKit.UICollectionViewDelegate {
+  @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, didSelectItemAt indexPath: Foundation.IndexPath)
+}
+extension RootViewController : UIKit.UICollectionViewDelegateFlowLayout {
+  @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, layout collectionViewLayout: UIKit.UICollectionViewLayout, insetForSectionAt section: Swift.Int) -> UIKit.UIEdgeInsets
+  @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, layout collectionViewLayout: UIKit.UICollectionViewLayout, sizeForItemAt indexPath: Foundation.IndexPath) -> CoreGraphics.CGSize
+}
+extension RootViewController : UIKit.UICollectionViewDataSource {
+  @objc dynamic public func numberOfSections(in collectionView: UIKit.UICollectionView) -> Swift.Int
+  @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, numberOfItemsInSection section: Swift.Int) -> Swift.Int
+  @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, cellForItemAt indexPath: Foundation.IndexPath) -> UIKit.UICollectionViewCell
+}
+public struct SnapModel : Swift.Codable {
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+open class Wistory {
+  public init(with companyToken: Swift.String, registrationId: Swift.String? = nil, usageSettings: Wistory.StyleSettings = .separate)
+  public var storiesViewController: Wistory.RootViewController
+  @objc deinit
+}
+extension Wistory {
+  @discardableResult
+  public func presentingSettings(style: Wistory.PresentingSettings) -> Wistory.Wistory
+  @discardableResult
+  public func customBaseURL(url: Swift.String) -> Wistory.Wistory
+  @discardableResult
+  public func favouriteString(_ string: Swift.String) -> Wistory.Wistory
+  @discardableResult
+  public func imageFormat(format: Wistory.ImageFormat) -> Wistory.Wistory
+}
+public enum PresentingSettings : Swift.String {
+  case fullscreen
+  case popover
+  public typealias RawValue = Swift.String
+  public init?(rawValue: Swift.String)
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum StyleSettings {
+  case embedded
+  case separate
+  public static func == (a: Wistory.StyleSettings, b: Wistory.StyleSettings) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public enum ImageFormat : Swift.String {
+  case fullscreen
+  case fixed
+  public typealias RawValue = Swift.String
+  public init?(rawValue: Swift.String)
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct Options {
+  public static var shared: Wistory.Options
+  public var presentingStyle: Wistory.PresentingSettings
+  public var imageFormat: Wistory.ImageFormat
+  public var favouritesString: Swift.String
+}

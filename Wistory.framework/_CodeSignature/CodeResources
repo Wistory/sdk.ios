@@ -28,21 +28,49 @@
 		<data>
 		hAsSJ3zZ295IT66DYp0hBio3GZk=
 		</data>
+		<key>Modules/Wistory.swiftmodule/arm64-apple-ios.swiftinterface</key>
+		<data>
+		pmNHC9ht/SB34CBu75UOV+jmQdc=
+		</data>
 		<key>Modules/Wistory.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		qOVfhUV47l3AixP2Slz+p6cdes8=
+		gfEVzORp1Nmcl5hcRnDBs+iLDOQ=
 		</data>
 		<key>Modules/Wistory.swiftmodule/arm64.swiftdoc</key>
 		<data>
 		hAsSJ3zZ295IT66DYp0hBio3GZk=
 		</data>
+		<key>Modules/Wistory.swiftmodule/arm64.swiftinterface</key>
+		<data>
+		pmNHC9ht/SB34CBu75UOV+jmQdc=
+		</data>
 		<key>Modules/Wistory.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		qOVfhUV47l3AixP2Slz+p6cdes8=
+		gfEVzORp1Nmcl5hcRnDBs+iLDOQ=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
 		rSXms4he1BWBGW8PEYjs11Ag1UU=
+		</data>
+		<key>bookmarkEmpty.png</key>
+		<data>
+		19bmXbXzwNkWhmwxF8dw/juuGRo=
+		</data>
+		<key>bookmarkSelected.png</key>
+		<data>
+		063xTZ8lyUk54A2O2WdpbIak3Hc=
+		</data>
+		<key>close.png</key>
+		<data>
+		FfPe3U/UUG/wybwPn/7TLzlDmS8=
+		</data>
+		<key>dislike.png</key>
+		<data>
+		Yy1jEMpc3hxFYiFZHCECDM+0KTk=
+		</data>
+		<key>like.png</key>
+		<data>
+		0IzIjwvdERCkFxsSKXIpqbRroMA=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -82,11 +110,18 @@
 			gsYlp7CsQ1WU1nTDlzVv9JB82DXV27nvrDsEIlFrfdM=
 			</data>
 		</dict>
+		<key>Modules/Wistory.swiftmodule/arm64-apple-ios.swiftinterface</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			0CTmAt8/CE4n9UlBGfxkh8bluKRDAEMFcjD5+Gti270=
+			</data>
+		</dict>
 		<key>Modules/Wistory.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ocyNSzy1ZVQqO6uQu+7uz9ZXhO5c8SUIcKfV90WvuAE=
+			kuvS/drapUdHPb9O3V/tcEC/i6NQxCg3AaQIa5y201k=
 			</data>
 		</dict>
 		<key>Modules/Wistory.swiftmodule/arm64.swiftdoc</key>
@@ -96,11 +131,18 @@
 			gsYlp7CsQ1WU1nTDlzVv9JB82DXV27nvrDsEIlFrfdM=
 			</data>
 		</dict>
+		<key>Modules/Wistory.swiftmodule/arm64.swiftinterface</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			0CTmAt8/CE4n9UlBGfxkh8bluKRDAEMFcjD5+Gti270=
+			</data>
+		</dict>
 		<key>Modules/Wistory.swiftmodule/arm64.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ocyNSzy1ZVQqO6uQu+7uz9ZXhO5c8SUIcKfV90WvuAE=
+			kuvS/drapUdHPb9O3V/tcEC/i6NQxCg3AaQIa5y201k=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -108,6 +150,41 @@
 			<key>hash2</key>
 			<data>
 			FmpFzlgGuGxXM1uwOQzVz2NGl22Fqc8pxzTsQODvC1o=
+			</data>
+		</dict>
+		<key>bookmarkEmpty.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			4AjUJmHXj27KKGWN7SiXasQkrTznv6AitAulRxe/qQk=
+			</data>
+		</dict>
+		<key>bookmarkSelected.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			EoTWxRrVmERskmBNw4xb7uICh3zkCCg+gSE23V2lP9I=
+			</data>
+		</dict>
+		<key>close.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			PmCanXT3bIz3ifaykm6A/iNsQfZh2mwLkv2rjcXa6lk=
+			</data>
+		</dict>
+		<key>dislike.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			3wktMMOQpDfSE7tMJ8oBFuj0Khecz9Bi7Sqmne8W75I=
+			</data>
+		</dict>
+		<key>like.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			HplKuNkbed8sEYzBmc9O5kBKNEL/DoX2JO1LgYrMUo4=
 			</data>
 		</dict>
 	</dict>
