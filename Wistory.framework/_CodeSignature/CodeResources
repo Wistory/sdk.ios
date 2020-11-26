@@ -18,11 +18,11 @@
 		</data>
 		<key>Modules/Wistory.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo</key>
 		<data>
-		Zz92YGKse82qZ/KM+U7ZDZDPzeQ=
+		y3az/C4Siedac87qwFQlbOpnzHk=
 		</data>
 		<key>Modules/Wistory.swiftmodule/Project/arm64.swiftsourceinfo</key>
 		<data>
-		Zz92YGKse82qZ/KM+U7ZDZDPzeQ=
+		y3az/C4Siedac87qwFQlbOpnzHk=
 		</data>
 		<key>Modules/Wistory.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
@@ -34,7 +34,7 @@
 		</data>
 		<key>Modules/Wistory.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		kctokSdcxgrN5RytEVgUAxbIFQg=
+		tO+qnWXB5e9JTMcyI1uu/aGal2w=
 		</data>
 		<key>Modules/Wistory.swiftmodule/arm64.swiftdoc</key>
 		<data>
@@ -46,7 +46,7 @@
 		</data>
 		<key>Modules/Wistory.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		kctokSdcxgrN5RytEVgUAxbIFQg=
+		tO+qnWXB5e9JTMcyI1uu/aGal2w=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -72,6 +72,10 @@
 		<data>
 		0IzIjwvdERCkFxsSKXIpqbRroMA=
 		</data>
+		<key>link.png</key>
+		<data>
+		mDlEUOxblOkdXGnUB+JFGAPctwM=
+		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
@@ -93,14 +97,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			9d+Ti4GOXWscpcEGBC87Kyg4EKhh9TjFgO7cH2fltHo=
+			Iqrj3ITYz26dZVMpwtSOSvSp0tnIwfDWQ/2Q3iAPjkU=
 			</data>
 		</dict>
 		<key>Modules/Wistory.swiftmodule/Project/arm64.swiftsourceinfo</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			9d+Ti4GOXWscpcEGBC87Kyg4EKhh9TjFgO7cH2fltHo=
+			Iqrj3ITYz26dZVMpwtSOSvSp0tnIwfDWQ/2Q3iAPjkU=
 			</data>
 		</dict>
 		<key>Modules/Wistory.swiftmodule/arm64-apple-ios.swiftdoc</key>
@@ -121,7 +125,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			11NEsIw3cMhTn3k92B23hPFnkEOnpPjKPV3OyMDouiM=
+			isKq2gfvzelgL6t8vOzs3IlDniMT/SMtOok+toeqmJw=
 			</data>
 		</dict>
 		<key>Modules/Wistory.swiftmodule/arm64.swiftdoc</key>
@@ -142,7 +146,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			11NEsIw3cMhTn3k92B23hPFnkEOnpPjKPV3OyMDouiM=
+			isKq2gfvzelgL6t8vOzs3IlDniMT/SMtOok+toeqmJw=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -185,6 +189,13 @@
 			<key>hash2</key>
 			<data>
 			HplKuNkbed8sEYzBmc9O5kBKNEL/DoX2JO1LgYrMUo4=
+			</data>
+		</dict>
+		<key>link.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			AkZvUiYFpj5moTkVJmTW/ZdeT26wYfYizMYQVEj+Aro=
 			</data>
 		</dict>
 	</dict>
