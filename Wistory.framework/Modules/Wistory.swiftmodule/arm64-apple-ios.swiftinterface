@@ -1,17 +1,82 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.3.1 (swiftlang-1200.0.41 clang-1200.0.32.8)
+// swift-compiler-version: Apple Swift version 5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)
 // swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name Wistory
 import AVFoundation
 import AVKit
 import DeviceCheck
 import Foundation
+import ImageIO
 import Nuke
+import SafariServices
 import Swift
 import UIKit
 import WebKit
 @_exported import Wistory
 extension UIImage {
   public func maskWithColor(color: UIKit.UIColor) -> UIKit.UIImage
+}
+public typealias PlatformImageView = UIKit.UIImageView
+open class SwiftyGifManager {
+  public static var defaultManager: Wistory.SwiftyGifManager
+  open var haveCache: Swift.Bool
+  open var remoteCache: [Foundation.URL : Foundation.Data]
+  public init(memoryLimit: Swift.Int)
+  @objc deinit
+  public func startTimerIfNeeded()
+  public func stopTimer()
+  open func addImageView(_ imageView: Wistory.PlatformImageView) -> Swift.Bool
+  open func deleteImageView(_ imageView: Wistory.PlatformImageView)
+  open func updateCacheSize(for imageView: Wistory.PlatformImageView, add: Swift.Bool)
+  open func clear()
+  open func containsImageView(_ imageView: Wistory.PlatformImageView) -> Swift.Bool
+  open func hasCache(_ imageView: Wistory.PlatformImageView) -> Swift.Bool
+}
+public typealias GifLevelOfIntegrity = Swift.Float
+extension Float {
+  public static var highestNoFrameSkipping: Wistory.GifLevelOfIntegrity
+  public static var `default`: Wistory.GifLevelOfIntegrity
+  public static var lowForManyGifs: Wistory.GifLevelOfIntegrity
+  public static var lowForTooManyGifs: Wistory.GifLevelOfIntegrity
+  public static var superLowForSlideShow: Wistory.GifLevelOfIntegrity
+}
+extension UIImage {
+  public convenience init?(imageData: Foundation.Data, levelOfIntegrity: Wistory.GifLevelOfIntegrity = .default) throws
+  public convenience init?(imageName: Swift.String, levelOfIntegrity: Wistory.GifLevelOfIntegrity = .default) throws
+}
+extension UIImage {
+  public convenience init(gifData: Foundation.Data, levelOfIntegrity: Wistory.GifLevelOfIntegrity = .default) throws
+  public convenience init(gifName: Swift.String, levelOfIntegrity: Wistory.GifLevelOfIntegrity = .default) throws
+  public func setGifFromData(_ data: Foundation.Data, levelOfIntegrity: Wistory.GifLevelOfIntegrity) throws
+  public func setGif(_ name: Swift.String) throws
+  public func framesCount() -> Swift.Int
+  public func setGif(_ name: Swift.String, levelOfIntegrity: Wistory.GifLevelOfIntegrity) throws
+  public func clear()
+}
+extension UIImage {
+  public var imageSource: ImageIO.CGImageSource? {
+    get
+    set(newValue)
+  }
+  public var displayRefreshFactor: Swift.Int? {
+    get
+    set(newValue)
+  }
+  public var imageSize: Swift.Int? {
+    get
+    set(newValue)
+  }
+  public var imageCount: Swift.Int? {
+    get
+    set(newValue)
+  }
+  public var displayOrder: [Swift.Int]? {
+    get
+    set(newValue)
+  }
+  public var imageData: Foundation.Data? {
+    get
+    set(newValue)
+  }
 }
 public protocol RootViewDelegate : AnyObject {
   func onItemsLoaded()
@@ -46,6 +111,65 @@ extension RootViewController : UIKit.UICollectionViewDataSource {
 public struct SnapModel : Swift.Codable {
   public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
+}
+@objc public protocol SwiftyGifDelegate {
+  @objc optional func gifDidStart(sender: UIKit.UIImageView)
+  @objc optional func gifDidLoop(sender: UIKit.UIImageView)
+  @objc optional func gifDidStop(sender: UIKit.UIImageView)
+  @objc optional func gifURLDidFinish(sender: UIKit.UIImageView)
+  @objc optional func gifURLDidFail(sender: UIKit.UIImageView, url: Foundation.URL, error: Swift.Error?)
+}
+extension UIImageView {
+  public func setImage(_ image: UIKit.UIImage, manager: Wistory.SwiftyGifManager = .defaultManager, loopCount: Swift.Int = -1)
+}
+extension UIImageView {
+  public convenience init(gifImage: UIKit.UIImage, manager: Wistory.SwiftyGifManager = .defaultManager, loopCount: Swift.Int = -1)
+  public convenience init(gifURL: Foundation.URL, manager: Wistory.SwiftyGifManager = .defaultManager, loopCount: Swift.Int = -1)
+  public func setGifImage(_ gifImage: UIKit.UIImage, manager: Wistory.SwiftyGifManager = .defaultManager, loopCount: Swift.Int = -1)
+}
+extension UIImageView {
+  @discardableResult
+  public func setGifFromURL(_ url: Foundation.URL, manager: Wistory.SwiftyGifManager = .defaultManager, loopCount: Swift.Int = -1, levelOfIntegrity: Wistory.GifLevelOfIntegrity = .default, session: Foundation.URLSession = URLSession.shared, showLoader: Swift.Bool = true, customLoader: UIKit.UIView? = nil) -> Foundation.URLSessionDataTask?
+}
+extension UIImageView {
+  public func startAnimatingGif()
+  public func stopAnimatingGif()
+  public func isAnimatingGif() -> Swift.Bool
+  public func showFrameForIndexDelta(_ delta: Swift.Int)
+  public func showFrameAtIndex(_ index: Swift.Int)
+  public func updateCache()
+  public func updateCurrentImage()
+  public func currentFrameIndex() -> Swift.Int
+  public func frameAtIndex(index: Swift.Int) -> UIKit.UIImage
+  public func isDiscarded(_ imageView: UIKit.UIView?) -> Swift.Bool
+  public func isDisplayedInScreen(_ imageView: UIKit.UIView?) -> Swift.Bool
+  public func clear()
+}
+extension UIImageView {
+  public var gifImage: UIKit.UIImage? {
+    get
+    set(newValue)
+  }
+  public var currentImage: UIKit.UIImage? {
+    get
+    set(newValue)
+  }
+  public var loopCount: Swift.Int {
+    get
+    set(newValue)
+  }
+  public var animationManager: Wistory.SwiftyGifManager? {
+    get
+    set(newValue)
+  }
+  public var delegate: Wistory.SwiftyGifDelegate? {
+    get
+    set(newValue)
+  }
+  public var displaying: Swift.Bool {
+    get
+    set(newValue)
+  }
 }
 open class Wistory {
   public init(with companyToken: Swift.String, registrationId: Swift.String? = nil, usageSettings: Wistory.StyleSettings = .separate)

@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/Wistory-Swift.h</key>
 		<data>
-		6uluQnIAYdXlbUuJbbhG+kXFeRg=
+		+7Lba6gmCmsUuKMPDCx4MDeZir0=
 		</data>
 		<key>Headers/Wistory.h</key>
 		<data>
@@ -14,51 +14,63 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		Exn2jSu4J1WCxMQoD4WCDlhRykQ=
+		AGQSkeQ6VsXNy8m5IkYnxzFzFk4=
 		</data>
 		<key>Modules/Wistory.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo</key>
 		<data>
-		kIttjiU5mAn9gdASZP/vVF1uaEc=
+		D98bk2cklMk/ue0WUOYDq0OKCrk=
 		</data>
 		<key>Modules/Wistory.swiftmodule/Project/arm64.swiftsourceinfo</key>
 		<data>
-		kIttjiU5mAn9gdASZP/vVF1uaEc=
+		D98bk2cklMk/ue0WUOYDq0OKCrk=
 		</data>
 		<key>Modules/Wistory.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
-		2b4zBosnwY4qnugHT1FFsCIERcg=
+		kHa20Puk9CWdR+oHRcRivd5Qq0U=
 		</data>
 		<key>Modules/Wistory.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
-		K+ZwBT4GAfPYI7IYWjbt0lhLA2Q=
+		GCCPVTYvScTDfgh/9DSla2fL98U=
 		</data>
 		<key>Modules/Wistory.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		kctokSdcxgrN5RytEVgUAxbIFQg=
+		ZF34eLP6BuzJP6mTOpppyMWUOso=
 		</data>
 		<key>Modules/Wistory.swiftmodule/arm64.swiftdoc</key>
 		<data>
-		2b4zBosnwY4qnugHT1FFsCIERcg=
+		kHa20Puk9CWdR+oHRcRivd5Qq0U=
 		</data>
 		<key>Modules/Wistory.swiftmodule/arm64.swiftinterface</key>
 		<data>
-		K+ZwBT4GAfPYI7IYWjbt0lhLA2Q=
+		GCCPVTYvScTDfgh/9DSla2fL98U=
 		</data>
 		<key>Modules/Wistory.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		kctokSdcxgrN5RytEVgUAxbIFQg=
+		ZF34eLP6BuzJP6mTOpppyMWUOso=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
 		rSXms4he1BWBGW8PEYjs11Ag1UU=
 		</data>
+		<key>back.png</key>
+		<data>
+		NQLVEF1iML26+mwCdkrmUopkXgg=
+		</data>
 		<key>bookmarkEmpty.png</key>
 		<data>
 		19bmXbXzwNkWhmwxF8dw/juuGRo=
 		</data>
+		<key>bookmarkFill.png</key>
+		<data>
+		BBLUHVrwliF308QGvtPrtCms0vY=
+		</data>
 		<key>bookmarkSelected.png</key>
 		<data>
 		063xTZ8lyUk54A2O2WdpbIak3Hc=
+		</data>
+		<key>bookmarkStroke.png</key>
+		<data>
+		KjUqQX9fq2ATBjvCAJ4zyIMA+ag=
 		</data>
 		<key>close.png</key>
 		<data>
@@ -68,9 +80,37 @@
 		<data>
 		Yy1jEMpc3hxFYiFZHCECDM+0KTk=
 		</data>
+		<key>dislikeFill.png</key>
+		<data>
+		bMR4ct+lsoSaXF8vrXpISg4lbNU=
+		</data>
+		<key>dislikeStroke.png</key>
+		<data>
+		lqWgXSg9y57nLZ8pmtr5KEIDYS0=
+		</data>
 		<key>like.png</key>
 		<data>
 		0IzIjwvdERCkFxsSKXIpqbRroMA=
+		</data>
+		<key>likeFill.png</key>
+		<data>
+		uETGShfQ3mdzvdZj8NLSrhN93jE=
+		</data>
+		<key>likeStroke.png</key>
+		<data>
+		jrNSAZfjRWmZyX3Fczvcv+ltD4A=
+		</data>
+		<key>link.png</key>
+		<data>
+		mDlEUOxblOkdXGnUB+JFGAPctwM=
+		</data>
+		<key>mute.png</key>
+		<data>
+		LzQZpx9QSioQAFi+Pjy37PmgEAA=
+		</data>
+		<key>volume.png</key>
+		<data>
+		SgjVgKIucf+NMY+0xXHo4+mDW1M=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -79,7 +119,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			bRcnH9F2eFMCCdVIR+BYWYKumbd33hIQjV7aMDCI8Sg=
+			tN5aK7kMX+9uWK03exsCum0ILumbJ1SHM3q5lDzHgQI=
 			</data>
 		</dict>
 		<key>Headers/Wistory.h</key>
@@ -93,56 +133,56 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			AoT08Aj+NO44h3kMbUt5Ww+088myc0IYmiC3t+ckJLQ=
+			gP4vlIoDYtHLEZIoCSAJ0HMKp7dPDUnb89dnvqjeBoI=
 			</data>
 		</dict>
 		<key>Modules/Wistory.swiftmodule/Project/arm64.swiftsourceinfo</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			AoT08Aj+NO44h3kMbUt5Ww+088myc0IYmiC3t+ckJLQ=
+			gP4vlIoDYtHLEZIoCSAJ0HMKp7dPDUnb89dnvqjeBoI=
 			</data>
 		</dict>
 		<key>Modules/Wistory.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			AiePpZXJrCHLIwJCBWgwq8hQ+EAGnXTq8txKbj5/EOc=
+			bv7hFQKLtIZG0fduwwUbb4dmkABHsMOTCSE6TG4FvtU=
 			</data>
 		</dict>
 		<key>Modules/Wistory.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			nDdusoUTS7RkbQ8Xxnccz3dUuN3hmLp61eKh6Cypaio=
+			9Qp5IfTb2ubcgOVEBPKHjQXy5/I8gVRx0GRZSCsWY+U=
 			</data>
 		</dict>
 		<key>Modules/Wistory.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			11NEsIw3cMhTn3k92B23hPFnkEOnpPjKPV3OyMDouiM=
+			3SZrykSiij9mPfkjyTp5rAL5zGmN3/W7Qf3q+J18lwM=
 			</data>
 		</dict>
 		<key>Modules/Wistory.swiftmodule/arm64.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			AiePpZXJrCHLIwJCBWgwq8hQ+EAGnXTq8txKbj5/EOc=
+			bv7hFQKLtIZG0fduwwUbb4dmkABHsMOTCSE6TG4FvtU=
 			</data>
 		</dict>
 		<key>Modules/Wistory.swiftmodule/arm64.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			nDdusoUTS7RkbQ8Xxnccz3dUuN3hmLp61eKh6Cypaio=
+			9Qp5IfTb2ubcgOVEBPKHjQXy5/I8gVRx0GRZSCsWY+U=
 			</data>
 		</dict>
 		<key>Modules/Wistory.swiftmodule/arm64.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			11NEsIw3cMhTn3k92B23hPFnkEOnpPjKPV3OyMDouiM=
+			3SZrykSiij9mPfkjyTp5rAL5zGmN3/W7Qf3q+J18lwM=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -152,6 +192,13 @@
 			FmpFzlgGuGxXM1uwOQzVz2NGl22Fqc8pxzTsQODvC1o=
 			</data>
 		</dict>
+		<key>back.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			yTmh7z10YbLXHrgG5qxPqHdAEw4iRS/pdxWOjPyXA4g=
+			</data>
+		</dict>
 		<key>bookmarkEmpty.png</key>
 		<dict>
 			<key>hash2</key>
@@ -159,11 +206,25 @@
 			4AjUJmHXj27KKGWN7SiXasQkrTznv6AitAulRxe/qQk=
 			</data>
 		</dict>
+		<key>bookmarkFill.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			bKdXz2C3TEsk3FhWCJ9nzYu28ht343I2snUpWORuBmk=
+			</data>
+		</dict>
 		<key>bookmarkSelected.png</key>
 		<dict>
 			<key>hash2</key>
 			<data>
 			EoTWxRrVmERskmBNw4xb7uICh3zkCCg+gSE23V2lP9I=
+			</data>
+		</dict>
+		<key>bookmarkStroke.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			jJ+NlV88s18R03XVrQ/b6D++Xp1Hhm9S6+P0DkPFoJw=
 			</data>
 		</dict>
 		<key>close.png</key>
@@ -180,11 +241,60 @@
 			3wktMMOQpDfSE7tMJ8oBFuj0Khecz9Bi7Sqmne8W75I=
 			</data>
 		</dict>
+		<key>dislikeFill.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			QrrZmZo7RM0NVbdstmion010j3kCwXq3xoFz2ob6W2c=
+			</data>
+		</dict>
+		<key>dislikeStroke.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			jVqjDrMWaStMQPzbdGQQ6lcMjNsU5k3gWzTMxU88a/s=
+			</data>
+		</dict>
 		<key>like.png</key>
 		<dict>
 			<key>hash2</key>
 			<data>
 			HplKuNkbed8sEYzBmc9O5kBKNEL/DoX2JO1LgYrMUo4=
+			</data>
+		</dict>
+		<key>likeFill.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			JGkp+9Myb3e4X2ILKSwNwSNXn9uYPmAISFzdl5L/2aQ=
+			</data>
+		</dict>
+		<key>likeStroke.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			EdmNoEkv3pWj2M0mhwpKbytU1CByZLq6FEM81TdLCbs=
+			</data>
+		</dict>
+		<key>link.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			AkZvUiYFpj5moTkVJmTW/ZdeT26wYfYizMYQVEj+Aro=
+			</data>
+		</dict>
+		<key>mute.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			d4Xg4rxoMYSdFbgTVIDqDYLktMuQRvD1fJd1b2EyD3k=
+			</data>
+		</dict>
+		<key>volume.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			2fyUmOCRo7W81KNGrCE34P/b5+DGDT9SEERn8FIippc=
 			</data>
 		</dict>
 	</dict>
