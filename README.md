@@ -15,7 +15,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 And set last avaliable version for target
 
 ```
-  pod 'Wistory', '~> 0.3.0'
+  pod 'Wistory', '~> 0.5'
 ```
 
 Run
@@ -26,7 +26,7 @@ pod install --repo-update
 
 ### Carthage
 
-Add `git "https://gitlab.com/Wistory/Wistory" ~> 0.3.0` to Cartfile with latest actual version and install as usual.
+Add `git "https://gitlab.com/Wistory/Wistory" ~> 0.5` to Cartfile with latest actual version and install as usual.
 
 ## Initialization
 
@@ -37,11 +37,32 @@ let instance = Wistory(with: <company token>)
 ``` 
 
 Don't forget to provide given company token in initialization. Otherwise Wistory will be inited with demo token
-Also you can provide own user id for managing likes/dislikes and rtc. By default it provided by us, but not works at 100% cases(phones with no SIM):
+Also you can provide own user id for managing likes/dislikes and etc. By default it provided by us, but not works at 100% cases(phones with no SIM):
 
 ```swift
 UIDevice.current.identifierForVendor?.uuidString
 ```
+
+### Initialisation types
+
+Wistory support two kind of usage and different initializers for that.
+
+* If you want to use Wistory embdeed and show all possible variants of snaps(instgram like) use this one:
+
+```swift
+init(with companyToken: String, registrationId: String?, usageSettings: StyleSettings)
+```
+
+**registrationId** and **usageSettings** are optional and have a default values
+
+* If you want to use Wistory only to show and present specific snap by the id:
+
+```swift
+init(with companyToken: String, registrationId: String?, eventId: String, root: UIViewController)
+```
+
+**registrationId** are optional and have default value
+**root** is needed to Wistory controller be presented on it
 
 ### Examples of initialization  
 
