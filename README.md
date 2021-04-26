@@ -37,7 +37,7 @@ let instance = Wistory(with: <company token>)
 ``` 
 
 Don't forget to provide given company token in initialization. Otherwise Wistory will be inited with demo token
-Also you can provide own user id for managing likes/dislikes and etc. By default it provided by us, but not works at 100% cases(phones with no SIM):
+Also you can provide own user id `registrationId` for managing likes/dislikes and etc. By default it provided by us, but not works at 100% cases:
 
 ```swift
 UIDevice.current.identifierForVendor?.uuidString
@@ -52,7 +52,6 @@ Wistory support two kind of usage and different initializers for that.
 ```swift
 init(with companyToken: String, registrationId: String?, usageSettings: StyleSettings)
 ```
-
 **registrationId** and **usageSettings** are optional and have a default values
 
 * If you want to use Wistory only to show and present specific snap by the id:
@@ -61,8 +60,8 @@ init(with companyToken: String, registrationId: String?, usageSettings: StyleSet
 init(with companyToken: String, registrationId: String?, eventId: String, root: UIViewController)
 ```
 
-**registrationId** are optional and have default value
-**root** is needed to Wistory controller be presented on it
+**registrationId** are optional and have default value.
+**root** is needed to Wistory controller to be presented on it
 
 ### Examples of initialization  
 
@@ -71,6 +70,7 @@ let instance = Wistory(with: String)
 ```
 
 Wistory support chaining init:
+
 ```swift
 Wistory(with: "company")
   .with(userToken: "token")
@@ -78,17 +78,29 @@ Wistory(with: "company")
   .storiesViewController
 ```
 
-After this framework ready to use
+After this framework(with root controller) ready to use
+
+Example of presentation of single story mode:
+
+```swift
+    @IBAction func openSingleStory(_ sender: Any) {
+        Wistory.init(with: companyToken, eventId: eventId, root: self)
+            .imageFormat(format: .fixed)
+            .presentingSettings(style: .fullscreen)
+    }
+```
+
+Notice, you don't need to present it by yourself, it will be automaticly presented when called
 
 ### Settings
 
 - `presentingSettings`
 
-Choose how stories will be presented. Can be `fullscreen` or `popover`
+Choose how stories will be presented. Can be `fullscreen` or `popover`. Simmilar to the UIViewController parameters
 
 - `usageSettings`
 
-Option for user stories root collection as embdeed in any view. Bool
+Option for root collection to be embdeeded in any view. Bool
 Example of usage for embdeed view:
 
 ```swift
@@ -106,7 +118,12 @@ Example of usage for embdeed view:
   wistory.didMove(toParent: self)
 ```
 
+- `displayTitle`
+
+Option for enable or disable name and icon inside of each story controller
+
 ## Delegate
+
 Wistory provides handlers for most of common cases. To implement adopt `storiesViewController.delegate` by your class
 And confirm to `WistoryEventsDelegate` protocol
 
