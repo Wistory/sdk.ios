@@ -172,7 +172,7 @@ extension UIImageView {
   }
 }
 open class Wistory {
-  public init(with companyToken: Swift.String, registrationId: Swift.String? = nil, usageSettings: Wistory.StyleSettings = .separate)
+  public init(with companyToken: Swift.String, registrationId: Swift.String? = nil, usageSettings: Wistory.StyleSettings = .separate, displayTitle: Swift.Bool = true)
   public var storiesViewController: Wistory.RootViewController
   @objc deinit
 }
@@ -218,4 +218,5 @@ public struct Options {
   public var presentingStyle: Wistory.PresentingSettings
   public var imageFormat: Wistory.ImageFormat
   public var favouritesString: Swift.String
+  public var displayTitle: Swift.Bool
 }
