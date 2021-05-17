@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)
+// swift-compiler-version: Apple Swift version 5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)
 // swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name Wistory
 import AVFoundation
 import AVKit
@@ -12,24 +12,67 @@ import Swift
 import UIKit
 import WebKit
 @_exported import Wistory
+@objc public protocol SwiftyGifDelegate {
+  @objc optional func gifDidStart(sender: UIKit.UIImageView)
+  @objc optional func gifDidLoop(sender: UIKit.UIImageView)
+  @objc optional func gifDidStop(sender: UIKit.UIImageView)
+  @objc optional func gifURLDidFinish(sender: UIKit.UIImageView)
+  @objc optional func gifURLDidFail(sender: UIKit.UIImageView, url: Foundation.URL, error: Swift.Error?)
+}
+extension UIImageView {
+  public func setImage(_ image: UIKit.UIImage, manager: Wistory.SwiftyGifManager = .defaultManager, loopCount: Swift.Int = -1)
+}
+extension UIImageView {
+  public convenience init(gifImage: UIKit.UIImage, manager: Wistory.SwiftyGifManager = .defaultManager, loopCount: Swift.Int = -1)
+  public convenience init(gifURL: Foundation.URL, manager: Wistory.SwiftyGifManager = .defaultManager, loopCount: Swift.Int = -1)
+  public func setGifImage(_ gifImage: UIKit.UIImage, manager: Wistory.SwiftyGifManager = .defaultManager, loopCount: Swift.Int = -1)
+}
+extension UIImageView {
+  @discardableResult
+  public func setGifFromURL(_ url: Foundation.URL, manager: Wistory.SwiftyGifManager = .defaultManager, loopCount: Swift.Int = -1, levelOfIntegrity: Wistory.GifLevelOfIntegrity = .default, session: Foundation.URLSession = URLSession.shared, showLoader: Swift.Bool = true, customLoader: UIKit.UIView? = nil) -> Foundation.URLSessionDataTask?
+}
+extension UIImageView {
+  public func startAnimatingGif()
+  public func stopAnimatingGif()
+  public func isAnimatingGif() -> Swift.Bool
+  public func showFrameForIndexDelta(_ delta: Swift.Int)
+  public func showFrameAtIndex(_ index: Swift.Int)
+  public func updateCache()
+  public func updateCurrentImage()
+  public func currentFrameIndex() -> Swift.Int
+  public func frameAtIndex(index: Swift.Int) -> UIKit.UIImage
+  public func isDiscarded(_ imageView: UIKit.UIView?) -> Swift.Bool
+  public func isDisplayedInScreen(_ imageView: UIKit.UIView?) -> Swift.Bool
+  public func clear()
+}
+extension UIImageView {
+  public var gifImage: UIKit.UIImage? {
+    get
+    set(newValue)
+  }
+  public var currentImage: UIKit.UIImage? {
+    get
+    set(newValue)
+  }
+  public var loopCount: Swift.Int {
+    get
+    set(newValue)
+  }
+  public var animationManager: Wistory.SwiftyGifManager? {
+    get
+    set(newValue)
+  }
+  public var delegate: Wistory.SwiftyGifDelegate? {
+    get
+    set(newValue)
+  }
+  public var displaying: Swift.Bool {
+    get
+    set(newValue)
+  }
+}
 extension UIImage {
   public func maskWithColor(color: UIKit.UIColor) -> UIKit.UIImage
-}
-public typealias PlatformImageView = UIKit.UIImageView
-open class SwiftyGifManager {
-  public static var defaultManager: Wistory.SwiftyGifManager
-  open var haveCache: Swift.Bool
-  open var remoteCache: [Foundation.URL : Foundation.Data]
-  public init(memoryLimit: Swift.Int)
-  @objc deinit
-  public func startTimerIfNeeded()
-  public func stopTimer()
-  open func addImageView(_ imageView: Wistory.PlatformImageView) -> Swift.Bool
-  open func deleteImageView(_ imageView: Wistory.PlatformImageView)
-  open func updateCacheSize(for imageView: Wistory.PlatformImageView, add: Swift.Bool)
-  open func clear()
-  open func containsImageView(_ imageView: Wistory.PlatformImageView) -> Swift.Bool
-  open func hasCache(_ imageView: Wistory.PlatformImageView) -> Swift.Bool
 }
 public typealias GifLevelOfIntegrity = Swift.Float
 extension Float {
@@ -93,8 +136,8 @@ public protocol RootViewDelegate : AnyObject {
   weak public var delegate: Wistory.RootViewDelegate?
   public init(usageStyle: Wistory.StyleSettings)
   @objc override dynamic public func viewDidLoad()
-  @objc deinit
   @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @objc deinit
 }
 extension RootViewController : UIKit.UICollectionViewDelegate {
   @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, didSelectItemAt indexPath: Foundation.IndexPath)
@@ -108,72 +151,29 @@ extension RootViewController : UIKit.UICollectionViewDataSource {
   @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, numberOfItemsInSection section: Swift.Int) -> Swift.Int
   @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, cellForItemAt indexPath: Foundation.IndexPath) -> UIKit.UICollectionViewCell
 }
-public struct SnapModel : Swift.Codable {
-  public init(from decoder: Swift.Decoder) throws
+public struct SnapModelDTO : Swift.Codable {
   public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
 }
-@objc public protocol SwiftyGifDelegate {
-  @objc optional func gifDidStart(sender: UIKit.UIImageView)
-  @objc optional func gifDidLoop(sender: UIKit.UIImageView)
-  @objc optional func gifDidStop(sender: UIKit.UIImageView)
-  @objc optional func gifURLDidFinish(sender: UIKit.UIImageView)
-  @objc optional func gifURLDidFail(sender: UIKit.UIImageView, url: Foundation.URL, error: Swift.Error?)
+public struct SnapModel : Swift.Codable {
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
 }
-extension UIImageView {
-  public func setImage(_ image: UIKit.UIImage, manager: Wistory.SwiftyGifManager = .defaultManager, loopCount: Swift.Int = -1)
-}
-extension UIImageView {
-  public convenience init(gifImage: UIKit.UIImage, manager: Wistory.SwiftyGifManager = .defaultManager, loopCount: Swift.Int = -1)
-  public convenience init(gifURL: Foundation.URL, manager: Wistory.SwiftyGifManager = .defaultManager, loopCount: Swift.Int = -1)
-  public func setGifImage(_ gifImage: UIKit.UIImage, manager: Wistory.SwiftyGifManager = .defaultManager, loopCount: Swift.Int = -1)
-}
-extension UIImageView {
-  @discardableResult
-  public func setGifFromURL(_ url: Foundation.URL, manager: Wistory.SwiftyGifManager = .defaultManager, loopCount: Swift.Int = -1, levelOfIntegrity: Wistory.GifLevelOfIntegrity = .default, session: Foundation.URLSession = URLSession.shared, showLoader: Swift.Bool = true, customLoader: UIKit.UIView? = nil) -> Foundation.URLSessionDataTask?
-}
-extension UIImageView {
-  public func startAnimatingGif()
-  public func stopAnimatingGif()
-  public func isAnimatingGif() -> Swift.Bool
-  public func showFrameForIndexDelta(_ delta: Swift.Int)
-  public func showFrameAtIndex(_ index: Swift.Int)
-  public func updateCache()
-  public func updateCurrentImage()
-  public func currentFrameIndex() -> Swift.Int
-  public func frameAtIndex(index: Swift.Int) -> UIKit.UIImage
-  public func isDiscarded(_ imageView: UIKit.UIView?) -> Swift.Bool
-  public func isDisplayedInScreen(_ imageView: UIKit.UIView?) -> Swift.Bool
-  public func clear()
-}
-extension UIImageView {
-  public var gifImage: UIKit.UIImage? {
-    get
-    set(newValue)
-  }
-  public var currentImage: UIKit.UIImage? {
-    get
-    set(newValue)
-  }
-  public var loopCount: Swift.Int {
-    get
-    set(newValue)
-  }
-  public var animationManager: Wistory.SwiftyGifManager? {
-    get
-    set(newValue)
-  }
-  public var delegate: Wistory.SwiftyGifDelegate? {
-    get
-    set(newValue)
-  }
-  public var displaying: Swift.Bool {
-    get
-    set(newValue)
-  }
+public protocol WistoryDelegate : AnyObject {
+  func onRead(story: Wistory.SnapModel)
+  func onPrevSnap(story: Wistory.SnapModel)
+  func onNextSnap(story: Wistory.SnapModel)
+  func onNavigate(action: Swift.String?, value: Swift.String)
+  func onFavorite(id: Swift.String, isFavorite: Swift.Bool)
+  func onRelation(id: Swift.String, relation: Swift.String)
+  func onPoll(id: Swift.String, snap: Swift.Int, option: Swift.String)
+  func onError(error: Swift.Error)
 }
 open class Wistory {
+  weak public var delegate: Wistory.WistoryDelegate?
   public init(with companyToken: Swift.String, registrationId: Swift.String? = nil, usageSettings: Wistory.StyleSettings = .separate, displayTitle: Swift.Bool = true)
-  public var storiesViewController: Wistory.RootViewController
+  public init(with companyToken: Swift.String, registrationId: Swift.String? = nil, eventId: Swift.String, root: UIKit.UIViewController, displayTitle: Swift.Bool = true)
+  public var storiesViewController: Wistory.RootViewController?
   @objc deinit
 }
 extension Wistory {
@@ -189,8 +189,8 @@ extension Wistory {
 public enum PresentingSettings : Swift.String {
   case fullscreen
   case popover
-  public typealias RawValue = Swift.String
   public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
     get
   }
@@ -199,16 +199,25 @@ public enum StyleSettings {
   case embedded
   case separate
   public static func == (a: Wistory.StyleSettings, b: Wistory.StyleSettings) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
     get
   }
+}
+public enum DisplayTitle {
+  case turnOn
+  case turnOff
+  public static func == (a: Wistory.DisplayTitle, b: Wistory.DisplayTitle) -> Swift.Bool
   public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
 }
 public enum ImageFormat : Swift.String {
   case fullscreen
   case fixed
-  public typealias RawValue = Swift.String
   public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
     get
   }
@@ -219,4 +228,20 @@ public struct Options {
   public var imageFormat: Wistory.ImageFormat
   public var favouritesString: Swift.String
   public var displayTitle: Swift.Bool
+}
+public typealias PlatformImageView = UIKit.UIImageView
+open class SwiftyGifManager {
+  public static var defaultManager: Wistory.SwiftyGifManager
+  open var haveCache: Swift.Bool
+  open var remoteCache: [Foundation.URL : Foundation.Data]
+  public init(memoryLimit: Swift.Int)
+  @objc deinit
+  public func startTimerIfNeeded()
+  public func stopTimer()
+  open func addImageView(_ imageView: Wistory.PlatformImageView) -> Swift.Bool
+  open func deleteImageView(_ imageView: Wistory.PlatformImageView)
+  open func updateCacheSize(for imageView: Wistory.PlatformImageView, add: Swift.Bool)
+  open func clear()
+  open func containsImageView(_ imageView: Wistory.PlatformImageView) -> Swift.Bool
+  open func hasCache(_ imageView: Wistory.PlatformImageView) -> Swift.Bool
 }
