@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)
+// swift-compiler-version: Apple Swift version 5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)
 // swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name Wistory
 import AVFoundation
 import AVKit
@@ -93,8 +93,8 @@ public protocol RootViewDelegate : AnyObject {
   weak public var delegate: Wistory.RootViewDelegate?
   public init(usageStyle: Wistory.StyleSettings)
   @objc override dynamic public func viewDidLoad()
-  @objc deinit
   @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @objc deinit
 }
 extension RootViewController : UIKit.UICollectionViewDelegate {
   @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, didSelectItemAt indexPath: Foundation.IndexPath)
@@ -108,9 +108,13 @@ extension RootViewController : UIKit.UICollectionViewDataSource {
   @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, numberOfItemsInSection section: Swift.Int) -> Swift.Int
   @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, cellForItemAt indexPath: Foundation.IndexPath) -> UIKit.UICollectionViewCell
 }
-public struct SnapModel : Swift.Codable {
-  public init(from decoder: Swift.Decoder) throws
+public struct SnapModelDTO : Swift.Codable {
   public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct SnapModel : Swift.Codable {
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
 }
 @objc public protocol SwiftyGifDelegate {
   @objc optional func gifDidStart(sender: UIKit.UIImageView)
@@ -171,9 +175,21 @@ extension UIImageView {
     set(newValue)
   }
 }
+public protocol WistoryDelegate : AnyObject {
+  func onRead(story: Wistory.SnapModel)
+  func onPrevSnap(story: Wistory.SnapModel)
+  func onNextSnap(story: Wistory.SnapModel)
+  func onNavigate(action: Swift.String?, value: Swift.String)
+  func onFavorite(id: Swift.String, isFavorite: Swift.Bool)
+  func onRelation(id: Swift.String, relation: Swift.String)
+  func onPoll(id: Swift.String, snap: Swift.Int, option: Swift.String)
+  func onError(error: Swift.Error)
+}
 open class Wistory {
+  weak public var delegate: Wistory.WistoryDelegate?
   public init(with companyToken: Swift.String, registrationId: Swift.String? = nil, usageSettings: Wistory.StyleSettings = .separate, displayTitle: Swift.Bool = true)
-  public var storiesViewController: Wistory.RootViewController
+  public init(with companyToken: Swift.String, registrationId: Swift.String? = nil, eventId: Swift.String, root: UIKit.UIViewController, displayTitle: Swift.Bool = true)
+  public var storiesViewController: Wistory.RootViewController?
   @objc deinit
 }
 extension Wistory {
@@ -189,8 +205,8 @@ extension Wistory {
 public enum PresentingSettings : Swift.String {
   case fullscreen
   case popover
-  public typealias RawValue = Swift.String
   public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
     get
   }
@@ -199,16 +215,25 @@ public enum StyleSettings {
   case embedded
   case separate
   public static func == (a: Wistory.StyleSettings, b: Wistory.StyleSettings) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
     get
   }
+}
+public enum DisplayTitle {
+  case turnOn
+  case turnOff
+  public static func == (a: Wistory.DisplayTitle, b: Wistory.DisplayTitle) -> Swift.Bool
   public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
 }
 public enum ImageFormat : Swift.String {
   case fullscreen
   case fixed
-  public typealias RawValue = Swift.String
   public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
     get
   }
