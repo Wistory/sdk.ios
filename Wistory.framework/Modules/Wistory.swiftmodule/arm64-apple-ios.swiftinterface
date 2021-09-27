@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.4.2 (swiftlang-1205.0.28.2 clang-1205.0.19.57)
+// swift-compiler-version: Apple Swift version 5.5 (swiftlang-1300.0.31.1 clang-1300.0.29.1)
 // swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name Wistory
 import AVFoundation
 import AVKit
@@ -12,7 +12,8 @@ import Swift
 import UIKit
 import WebKit
 @_exported import Wistory
-extension UIImage {
+import _Concurrency
+extension UIKit.UIImage {
   public func maskWithColor(color: UIKit.UIColor) -> UIKit.UIImage
 }
 public typealias PlatformImageView = UIKit.UIImageView
@@ -32,18 +33,18 @@ open class SwiftyGifManager {
   open func hasCache(_ imageView: Wistory.PlatformImageView) -> Swift.Bool
 }
 public typealias GifLevelOfIntegrity = Swift.Float
-extension Float {
+extension Swift.Float {
   public static var highestNoFrameSkipping: Wistory.GifLevelOfIntegrity
   public static var `default`: Wistory.GifLevelOfIntegrity
   public static var lowForManyGifs: Wistory.GifLevelOfIntegrity
   public static var lowForTooManyGifs: Wistory.GifLevelOfIntegrity
   public static var superLowForSlideShow: Wistory.GifLevelOfIntegrity
 }
-extension UIImage {
+extension UIKit.UIImage {
   public convenience init?(imageData: Foundation.Data, levelOfIntegrity: Wistory.GifLevelOfIntegrity = .default) throws
   public convenience init?(imageName: Swift.String, levelOfIntegrity: Wistory.GifLevelOfIntegrity = .default) throws
 }
-extension UIImage {
+extension UIKit.UIImage {
   public convenience init(gifData: Foundation.Data, levelOfIntegrity: Wistory.GifLevelOfIntegrity = .default) throws
   public convenience init(gifName: Swift.String, levelOfIntegrity: Wistory.GifLevelOfIntegrity = .default) throws
   public func setGifFromData(_ data: Foundation.Data, levelOfIntegrity: Wistory.GifLevelOfIntegrity) throws
@@ -52,7 +53,7 @@ extension UIImage {
   public func setGif(_ name: Swift.String, levelOfIntegrity: Wistory.GifLevelOfIntegrity) throws
   public func clear()
 }
-extension UIImage {
+extension UIKit.UIImage {
   public var imageSource: ImageIO.CGImageSource? {
     get
     set(newValue)
@@ -89,24 +90,23 @@ public protocol RootViewDelegate : AnyObject {
   func onPoll(id: Swift.String, snap: Swift.Int, option: Swift.String)
   func onError(error: Swift.Error)
 }
-@objc @_hasMissingDesignatedInitializers public class RootViewController : UIKit.UIViewController {
-  weak public var delegate: Wistory.RootViewDelegate?
-  public init(usageStyle: Wistory.StyleSettings)
-  @objc override dynamic public func viewDidLoad()
-  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class RootViewController : UIKit.UIViewController {
+  @_Concurrency.MainActor(unsafe) weak public var delegate: Wistory.RootViewDelegate?
+  @_Concurrency.MainActor(unsafe) public init(usageStyle: Wistory.StyleSettings)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
   @objc deinit
 }
-extension RootViewController : UIKit.UICollectionViewDelegate {
-  @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, didSelectItemAt indexPath: Foundation.IndexPath)
+extension Wistory.RootViewController : UIKit.UICollectionViewDelegate {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, didSelectItemAt indexPath: Foundation.IndexPath)
 }
-extension RootViewController : UIKit.UICollectionViewDelegateFlowLayout {
-  @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, layout collectionViewLayout: UIKit.UICollectionViewLayout, insetForSectionAt section: Swift.Int) -> UIKit.UIEdgeInsets
-  @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, layout collectionViewLayout: UIKit.UICollectionViewLayout, sizeForItemAt indexPath: Foundation.IndexPath) -> CoreGraphics.CGSize
+extension Wistory.RootViewController : UIKit.UICollectionViewDelegateFlowLayout {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, layout collectionViewLayout: UIKit.UICollectionViewLayout, insetForSectionAt section: Swift.Int) -> UIKit.UIEdgeInsets
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, layout collectionViewLayout: UIKit.UICollectionViewLayout, sizeForItemAt indexPath: Foundation.IndexPath) -> CoreGraphics.CGSize
 }
-extension RootViewController : UIKit.UICollectionViewDataSource {
-  @objc dynamic public func numberOfSections(in collectionView: UIKit.UICollectionView) -> Swift.Int
-  @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, numberOfItemsInSection section: Swift.Int) -> Swift.Int
-  @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, cellForItemAt indexPath: Foundation.IndexPath) -> UIKit.UICollectionViewCell
+extension Wistory.RootViewController : UIKit.UICollectionViewDataSource {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func numberOfSections(in collectionView: UIKit.UICollectionView) -> Swift.Int
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, numberOfItemsInSection section: Swift.Int) -> Swift.Int
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, cellForItemAt indexPath: Foundation.IndexPath) -> UIKit.UICollectionViewCell
 }
 public struct SnapModelDTO : Swift.Codable {
   public func encode(to encoder: Swift.Encoder) throws
@@ -123,54 +123,54 @@ public struct SnapModel : Swift.Codable {
   @objc optional func gifURLDidFinish(sender: UIKit.UIImageView)
   @objc optional func gifURLDidFail(sender: UIKit.UIImageView, url: Foundation.URL, error: Swift.Error?)
 }
-extension UIImageView {
-  public func setImage(_ image: UIKit.UIImage, manager: Wistory.SwiftyGifManager = .defaultManager, loopCount: Swift.Int = -1)
+extension UIKit.UIImageView {
+  @_Concurrency.MainActor(unsafe) public func setImage(_ image: UIKit.UIImage, manager: Wistory.SwiftyGifManager = .defaultManager, loopCount: Swift.Int = -1)
 }
-extension UIImageView {
-  public convenience init(gifImage: UIKit.UIImage, manager: Wistory.SwiftyGifManager = .defaultManager, loopCount: Swift.Int = -1)
-  public convenience init(gifURL: Foundation.URL, manager: Wistory.SwiftyGifManager = .defaultManager, loopCount: Swift.Int = -1)
-  public func setGifImage(_ gifImage: UIKit.UIImage, manager: Wistory.SwiftyGifManager = .defaultManager, loopCount: Swift.Int = -1)
+extension UIKit.UIImageView {
+  @_Concurrency.MainActor(unsafe) public convenience init(gifImage: UIKit.UIImage, manager: Wistory.SwiftyGifManager = .defaultManager, loopCount: Swift.Int = -1)
+  @_Concurrency.MainActor(unsafe) public convenience init(gifURL: Foundation.URL, manager: Wistory.SwiftyGifManager = .defaultManager, loopCount: Swift.Int = -1)
+  @_Concurrency.MainActor(unsafe) public func setGifImage(_ gifImage: UIKit.UIImage, manager: Wistory.SwiftyGifManager = .defaultManager, loopCount: Swift.Int = -1)
 }
-extension UIImageView {
+extension UIKit.UIImageView {
   @discardableResult
-  public func setGifFromURL(_ url: Foundation.URL, manager: Wistory.SwiftyGifManager = .defaultManager, loopCount: Swift.Int = -1, levelOfIntegrity: Wistory.GifLevelOfIntegrity = .default, session: Foundation.URLSession = URLSession.shared, showLoader: Swift.Bool = true, customLoader: UIKit.UIView? = nil) -> Foundation.URLSessionDataTask?
+  @_Concurrency.MainActor(unsafe) public func setGifFromURL(_ url: Foundation.URL, manager: Wistory.SwiftyGifManager = .defaultManager, loopCount: Swift.Int = -1, levelOfIntegrity: Wistory.GifLevelOfIntegrity = .default, session: Foundation.URLSession = URLSession.shared, showLoader: Swift.Bool = true, customLoader: UIKit.UIView? = nil) -> Foundation.URLSessionDataTask?
 }
-extension UIImageView {
-  public func startAnimatingGif()
-  public func stopAnimatingGif()
-  public func isAnimatingGif() -> Swift.Bool
-  public func showFrameForIndexDelta(_ delta: Swift.Int)
-  public func showFrameAtIndex(_ index: Swift.Int)
-  public func updateCache()
-  public func updateCurrentImage()
-  public func currentFrameIndex() -> Swift.Int
-  public func frameAtIndex(index: Swift.Int) -> UIKit.UIImage
-  public func isDiscarded(_ imageView: UIKit.UIView?) -> Swift.Bool
-  public func isDisplayedInScreen(_ imageView: UIKit.UIView?) -> Swift.Bool
-  public func clear()
+extension UIKit.UIImageView {
+  @_Concurrency.MainActor(unsafe) public func startAnimatingGif()
+  @_Concurrency.MainActor(unsafe) public func stopAnimatingGif()
+  @_Concurrency.MainActor(unsafe) public func isAnimatingGif() -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) public func showFrameForIndexDelta(_ delta: Swift.Int)
+  @_Concurrency.MainActor(unsafe) public func showFrameAtIndex(_ index: Swift.Int)
+  @_Concurrency.MainActor(unsafe) public func updateCache()
+  @_Concurrency.MainActor(unsafe) public func updateCurrentImage()
+  @_Concurrency.MainActor(unsafe) public func currentFrameIndex() -> Swift.Int
+  @_Concurrency.MainActor(unsafe) public func frameAtIndex(index: Swift.Int) -> UIKit.UIImage
+  @_Concurrency.MainActor(unsafe) public func isDiscarded(_ imageView: UIKit.UIView?) -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) public func isDisplayedInScreen(_ imageView: UIKit.UIView?) -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) public func clear()
 }
-extension UIImageView {
-  public var gifImage: UIKit.UIImage? {
+extension UIKit.UIImageView {
+  @_Concurrency.MainActor(unsafe) public var gifImage: UIKit.UIImage? {
     get
     set(newValue)
   }
-  public var currentImage: UIKit.UIImage? {
+  @_Concurrency.MainActor(unsafe) public var currentImage: UIKit.UIImage? {
     get
     set(newValue)
   }
-  public var loopCount: Swift.Int {
+  @_Concurrency.MainActor(unsafe) public var loopCount: Swift.Int {
     get
     set(newValue)
   }
-  public var animationManager: Wistory.SwiftyGifManager? {
+  @_Concurrency.MainActor(unsafe) public var animationManager: Wistory.SwiftyGifManager? {
     get
     set(newValue)
   }
-  public var delegate: Wistory.SwiftyGifDelegate? {
+  @_Concurrency.MainActor(unsafe) public var delegate: Wistory.SwiftyGifDelegate? {
     get
     set(newValue)
   }
-  public var displaying: Swift.Bool {
+  @_Concurrency.MainActor(unsafe) public var displaying: Swift.Bool {
     get
     set(newValue)
   }
@@ -192,7 +192,7 @@ open class Wistory {
   public var storiesViewController: Wistory.RootViewController?
   @objc deinit
 }
-extension Wistory {
+extension Wistory.Wistory {
   @discardableResult
   public func presentingSettings(style: Wistory.PresentingSettings) -> Wistory.Wistory
   @discardableResult
