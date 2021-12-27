@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.5 (swiftlang-1300.0.31.1 clang-1300.0.29.1)
+// swift-compiler-version: Apple Swift version 5.5.1 (swiftlang-1300.0.31.4 clang-1300.0.29.6)
 // swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name Wistory
 import AVFoundation
 import AVKit
@@ -81,7 +81,7 @@ extension UIKit.UIImage {
 }
 public protocol RootViewDelegate : AnyObject {
   func onItemsLoaded()
-  func onRead(story: Wistory.SnapModel)
+  func onRead(story: Wistory.SnapModel, isVolume: Swift.Bool?)
   func onPrevSnap(story: Wistory.SnapModel)
   func onNextSnap(story: Wistory.SnapModel)
   func onNavigate(action: Swift.String?, value: Swift.String)
@@ -89,6 +89,7 @@ public protocol RootViewDelegate : AnyObject {
   func onRelation(id: Swift.String, relation: Swift.String)
   func onPoll(id: Swift.String, snap: Swift.Int, option: Swift.String)
   func onError(error: Swift.Error)
+  func dismissed()
 }
 @objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class RootViewController : UIKit.UIViewController {
   @_Concurrency.MainActor(unsafe) weak public var delegate: Wistory.RootViewDelegate?
@@ -176,7 +177,7 @@ extension UIKit.UIImageView {
   }
 }
 public protocol WistoryDelegate : AnyObject {
-  func onRead(story: Wistory.SnapModel)
+  func onRead(story: Wistory.SnapModel, isVolume: Swift.Bool?)
   func onPrevSnap(story: Wistory.SnapModel)
   func onNextSnap(story: Wistory.SnapModel)
   func onNavigate(action: Swift.String?, value: Swift.String)
@@ -184,6 +185,7 @@ public protocol WistoryDelegate : AnyObject {
   func onRelation(id: Swift.String, relation: Swift.String)
   func onPoll(id: Swift.String, snap: Swift.Int, option: Swift.String)
   func onError(error: Swift.Error)
+  func dismissed()
 }
 open class Wistory {
   weak public var delegate: Wistory.WistoryDelegate?
