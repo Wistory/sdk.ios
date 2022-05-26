@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.5.1 (swiftlang-1300.0.31.4 clang-1300.0.29.6)
+// swift-compiler-version: Apple Swift version 5.6 (swiftlang-5.6.0.323.62 clang-1316.0.20.8)
 // swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name Wistory
 import AVFoundation
 import AVKit
@@ -13,9 +13,6 @@ import UIKit
 import WebKit
 @_exported import Wistory
 import _Concurrency
-extension UIKit.UIImage {
-  public func maskWithColor(color: UIKit.UIColor) -> UIKit.UIImage
-}
 public typealias PlatformImageView = UIKit.UIImageView
 open class SwiftyGifManager {
   public static var defaultManager: Wistory.SwiftyGifManager
@@ -32,21 +29,83 @@ open class SwiftyGifManager {
   open func containsImageView(_ imageView: Wistory.PlatformImageView) -> Swift.Bool
   open func hasCache(_ imageView: Wistory.PlatformImageView) -> Swift.Bool
 }
+@objc public protocol SwiftyGifDelegate {
+  @objc optional func gifDidStart(sender: UIKit.UIImageView)
+  @objc optional func gifDidLoop(sender: UIKit.UIImageView)
+  @objc optional func gifDidStop(sender: UIKit.UIImageView)
+  @objc optional func gifURLDidFinish(sender: UIKit.UIImageView)
+  @objc optional func gifURLDidFail(sender: UIKit.UIImageView, url: Foundation.URL, error: Swift.Error?)
+}
+extension UIKit.UIImageView {
+  @_Concurrency.MainActor(unsafe) public func setImage(_ image: UIKit.UIImage, manager: Wistory.SwiftyGifManager = .defaultManager, loopCount: Swift.Int = -1)
+}
+extension UIKit.UIImageView {
+  @_Concurrency.MainActor(unsafe) convenience public init(gifImage: UIKit.UIImage, manager: Wistory.SwiftyGifManager = .defaultManager, loopCount: Swift.Int = -1)
+  @_Concurrency.MainActor(unsafe) convenience public init(gifURL: Foundation.URL, manager: Wistory.SwiftyGifManager = .defaultManager, loopCount: Swift.Int = -1)
+  @_Concurrency.MainActor(unsafe) public func setGifImage(_ gifImage: UIKit.UIImage, manager: Wistory.SwiftyGifManager = .defaultManager, loopCount: Swift.Int = -1)
+}
+extension UIKit.UIImageView {
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func setGifFromURL(_ url: Foundation.URL, manager: Wistory.SwiftyGifManager = .defaultManager, loopCount: Swift.Int = -1, levelOfIntegrity: Wistory.GifLevelOfIntegrity = .default, session: Foundation.URLSession = URLSession.shared, showLoader: Swift.Bool = true, customLoader: UIKit.UIView? = nil) -> Foundation.URLSessionDataTask?
+}
+extension UIKit.UIImageView {
+  @_Concurrency.MainActor(unsafe) public func startAnimatingGif()
+  @_Concurrency.MainActor(unsafe) public func stopAnimatingGif()
+  @_Concurrency.MainActor(unsafe) public func isAnimatingGif() -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) public func showFrameForIndexDelta(_ delta: Swift.Int)
+  @_Concurrency.MainActor(unsafe) public func showFrameAtIndex(_ index: Swift.Int)
+  @_Concurrency.MainActor(unsafe) public func updateCache()
+  @_Concurrency.MainActor(unsafe) public func updateCurrentImage()
+  @_Concurrency.MainActor(unsafe) public func currentFrameIndex() -> Swift.Int
+  @_Concurrency.MainActor(unsafe) public func frameAtIndex(index: Swift.Int) -> UIKit.UIImage
+  @_Concurrency.MainActor(unsafe) public func isDiscarded(_ imageView: UIKit.UIView?) -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) public func isDisplayedInScreen(_ imageView: UIKit.UIView?) -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) public func clear()
+}
+extension UIKit.UIImageView {
+  @_Concurrency.MainActor(unsafe) public var gifImage: UIKit.UIImage? {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var currentImage: UIKit.UIImage? {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var loopCount: Swift.Int {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var animationManager: Wistory.SwiftyGifManager? {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var delegate: Wistory.SwiftyGifDelegate? {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var displaying: Swift.Bool {
+    get
+    set
+  }
+}
+extension UIKit.UIImage {
+  public func maskWithColor(color: UIKit.UIColor) -> UIKit.UIImage
+}
 public typealias GifLevelOfIntegrity = Swift.Float
 extension Swift.Float {
-  public static var highestNoFrameSkipping: Wistory.GifLevelOfIntegrity
-  public static var `default`: Wistory.GifLevelOfIntegrity
-  public static var lowForManyGifs: Wistory.GifLevelOfIntegrity
-  public static var lowForTooManyGifs: Wistory.GifLevelOfIntegrity
-  public static var superLowForSlideShow: Wistory.GifLevelOfIntegrity
+  public static let highestNoFrameSkipping: Wistory.GifLevelOfIntegrity
+  public static let `default`: Wistory.GifLevelOfIntegrity
+  public static let lowForManyGifs: Wistory.GifLevelOfIntegrity
+  public static let lowForTooManyGifs: Wistory.GifLevelOfIntegrity
+  public static let superLowForSlideShow: Wistory.GifLevelOfIntegrity
 }
 extension UIKit.UIImage {
-  public convenience init?(imageData: Foundation.Data, levelOfIntegrity: Wistory.GifLevelOfIntegrity = .default) throws
-  public convenience init?(imageName: Swift.String, levelOfIntegrity: Wistory.GifLevelOfIntegrity = .default) throws
+  convenience public init?(imageData: Foundation.Data, levelOfIntegrity: Wistory.GifLevelOfIntegrity = .default) throws
+  convenience public init?(imageName: Swift.String, levelOfIntegrity: Wistory.GifLevelOfIntegrity = .default) throws
 }
 extension UIKit.UIImage {
-  public convenience init(gifData: Foundation.Data, levelOfIntegrity: Wistory.GifLevelOfIntegrity = .default) throws
-  public convenience init(gifName: Swift.String, levelOfIntegrity: Wistory.GifLevelOfIntegrity = .default) throws
+  convenience public init(gifData: Foundation.Data, levelOfIntegrity: Wistory.GifLevelOfIntegrity = .default) throws
+  convenience public init(gifName: Swift.String, levelOfIntegrity: Wistory.GifLevelOfIntegrity = .default) throws
   public func setGifFromData(_ data: Foundation.Data, levelOfIntegrity: Wistory.GifLevelOfIntegrity) throws
   public func setGif(_ name: Swift.String) throws
   public func framesCount() -> Swift.Int
@@ -56,27 +115,27 @@ extension UIKit.UIImage {
 extension UIKit.UIImage {
   public var imageSource: ImageIO.CGImageSource? {
     get
-    set(newValue)
+    set
   }
   public var displayRefreshFactor: Swift.Int? {
     get
-    set(newValue)
+    set
   }
   public var imageSize: Swift.Int? {
     get
-    set(newValue)
+    set
   }
   public var imageCount: Swift.Int? {
     get
-    set(newValue)
+    set
   }
   public var displayOrder: [Swift.Int]? {
     get
-    set(newValue)
+    set
   }
   public var imageData: Foundation.Data? {
     get
-    set(newValue)
+    set
   }
 }
 public protocol RootViewDelegate : AnyObject {
@@ -116,65 +175,6 @@ public struct SnapModelDTO : Swift.Codable {
 public struct SnapModel : Swift.Codable {
   public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
-}
-@objc public protocol SwiftyGifDelegate {
-  @objc optional func gifDidStart(sender: UIKit.UIImageView)
-  @objc optional func gifDidLoop(sender: UIKit.UIImageView)
-  @objc optional func gifDidStop(sender: UIKit.UIImageView)
-  @objc optional func gifURLDidFinish(sender: UIKit.UIImageView)
-  @objc optional func gifURLDidFail(sender: UIKit.UIImageView, url: Foundation.URL, error: Swift.Error?)
-}
-extension UIKit.UIImageView {
-  @_Concurrency.MainActor(unsafe) public func setImage(_ image: UIKit.UIImage, manager: Wistory.SwiftyGifManager = .defaultManager, loopCount: Swift.Int = -1)
-}
-extension UIKit.UIImageView {
-  @_Concurrency.MainActor(unsafe) public convenience init(gifImage: UIKit.UIImage, manager: Wistory.SwiftyGifManager = .defaultManager, loopCount: Swift.Int = -1)
-  @_Concurrency.MainActor(unsafe) public convenience init(gifURL: Foundation.URL, manager: Wistory.SwiftyGifManager = .defaultManager, loopCount: Swift.Int = -1)
-  @_Concurrency.MainActor(unsafe) public func setGifImage(_ gifImage: UIKit.UIImage, manager: Wistory.SwiftyGifManager = .defaultManager, loopCount: Swift.Int = -1)
-}
-extension UIKit.UIImageView {
-  @discardableResult
-  @_Concurrency.MainActor(unsafe) public func setGifFromURL(_ url: Foundation.URL, manager: Wistory.SwiftyGifManager = .defaultManager, loopCount: Swift.Int = -1, levelOfIntegrity: Wistory.GifLevelOfIntegrity = .default, session: Foundation.URLSession = URLSession.shared, showLoader: Swift.Bool = true, customLoader: UIKit.UIView? = nil) -> Foundation.URLSessionDataTask?
-}
-extension UIKit.UIImageView {
-  @_Concurrency.MainActor(unsafe) public func startAnimatingGif()
-  @_Concurrency.MainActor(unsafe) public func stopAnimatingGif()
-  @_Concurrency.MainActor(unsafe) public func isAnimatingGif() -> Swift.Bool
-  @_Concurrency.MainActor(unsafe) public func showFrameForIndexDelta(_ delta: Swift.Int)
-  @_Concurrency.MainActor(unsafe) public func showFrameAtIndex(_ index: Swift.Int)
-  @_Concurrency.MainActor(unsafe) public func updateCache()
-  @_Concurrency.MainActor(unsafe) public func updateCurrentImage()
-  @_Concurrency.MainActor(unsafe) public func currentFrameIndex() -> Swift.Int
-  @_Concurrency.MainActor(unsafe) public func frameAtIndex(index: Swift.Int) -> UIKit.UIImage
-  @_Concurrency.MainActor(unsafe) public func isDiscarded(_ imageView: UIKit.UIView?) -> Swift.Bool
-  @_Concurrency.MainActor(unsafe) public func isDisplayedInScreen(_ imageView: UIKit.UIView?) -> Swift.Bool
-  @_Concurrency.MainActor(unsafe) public func clear()
-}
-extension UIKit.UIImageView {
-  @_Concurrency.MainActor(unsafe) public var gifImage: UIKit.UIImage? {
-    get
-    set(newValue)
-  }
-  @_Concurrency.MainActor(unsafe) public var currentImage: UIKit.UIImage? {
-    get
-    set(newValue)
-  }
-  @_Concurrency.MainActor(unsafe) public var loopCount: Swift.Int {
-    get
-    set(newValue)
-  }
-  @_Concurrency.MainActor(unsafe) public var animationManager: Wistory.SwiftyGifManager? {
-    get
-    set(newValue)
-  }
-  @_Concurrency.MainActor(unsafe) public var delegate: Wistory.SwiftyGifDelegate? {
-    get
-    set(newValue)
-  }
-  @_Concurrency.MainActor(unsafe) public var displaying: Swift.Bool {
-    get
-    set(newValue)
-  }
 }
 public protocol WistoryDelegate : AnyObject {
   func onRead(story: Wistory.SnapModel, isVolume: Swift.Bool?)
@@ -247,3 +247,13 @@ public struct Options {
   public var favouritesString: Swift.String
   public var displayTitle: Swift.Bool
 }
+extension Wistory.PresentingSettings : Swift.Equatable {}
+extension Wistory.PresentingSettings : Swift.Hashable {}
+extension Wistory.PresentingSettings : Swift.RawRepresentable {}
+extension Wistory.StyleSettings : Swift.Equatable {}
+extension Wistory.StyleSettings : Swift.Hashable {}
+extension Wistory.DisplayTitle : Swift.Equatable {}
+extension Wistory.DisplayTitle : Swift.Hashable {}
+extension Wistory.ImageFormat : Swift.Equatable {}
+extension Wistory.ImageFormat : Swift.Hashable {}
+extension Wistory.ImageFormat : Swift.RawRepresentable {}
