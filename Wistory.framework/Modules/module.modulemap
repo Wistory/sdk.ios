@@ -6,6 +6,6 @@ framework module Wistory {
 }
 
 module Wistory.Swift {
-    header "Wistory-Swift.h"
-    requires objc
+  header "Wistory-Swift.h"
+  requires objc
 }
