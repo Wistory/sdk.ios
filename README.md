@@ -50,9 +50,19 @@ Wistory support two kind of usage and different initializers for that.
 * If you want to use Wistory embdeed and show all possible variants of snaps(instgram like) use this one:
 
 ```swift
-init(with companyToken: String, registrationId: String?, usageSettings: StyleSettings)
+init(
+    with companyToken: String,
+    registrationId: String?,
+    usageSettings: StyleSettings,
+    forcedOpenNewStories: Bool,
+    displayTitle: Bool
+)
 ```
-**registrationId** and **usageSettings** are optional and have a default values
+Arguments with default values:
+**registrationId** = nil
+**usageSettings** = StyleSettings.separate
+**forcedOpenNewStories** = false
+**displayTitle** = true
 
 * If you want to use Wistory only to show and present specific snap by the id:
 
