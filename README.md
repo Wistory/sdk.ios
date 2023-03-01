@@ -59,10 +59,10 @@ init(
 )
 ```
 Arguments with default values:
-**registrationId** = nil
-**usageSettings** = StyleSettings.separate
-**forcedOpenNewStories** = false
-**displayTitle** = true
+- `registrationId = nil`
+- `usageSettings = StyleSettings.separate`
+- `forcedOpenNewStories = false`
+- `displayTitle = true`
 
 * If you want to use Wistory only to show and present specific snap by the id:
 
