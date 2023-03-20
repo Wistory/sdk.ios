@@ -33,7 +33,7 @@ Add `git "https://gitlab.com/Wistory/Wistory" ~> 0.5` to Cartfile with latest ac
 Create instance of class:
 
 ```swift
-let instance = Wistory(with: <company token>)
+let instance = WistoryBuilder(with: <company token>)
 ``` 
 
 Don't forget to provide given company token in initialization. Otherwise Wistory will be inited with demo token
@@ -76,13 +76,13 @@ init(with companyToken: String, registrationId: String?, eventId: String, root: 
 ### Examples of initialization  
 
 ```swift
-let instance = Wistory(with: String)
+let instance = WistoryBuilder(with: String)
 ```
 
 Wistory support chaining init:
 
 ```swift
-Wistory(with: "company")
+WistoryBuilder(with: "company")
   .with(userToken: "token")
   .presentingSettings(style: .fullscreen)
   .storiesViewController
@@ -94,7 +94,7 @@ Example of presentation of single story mode:
 
 ```swift
     @IBAction func openSingleStory(_ sender: Any) {
-        Wistory.init(with: companyToken, eventId: eventId, root: self)
+        WistoryBuilder.init(with: companyToken, eventId: eventId, root: self)
             .imageFormat(format: .fixed)
             .presentingSettings(style: .fullscreen)
     }
