@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/Wistory-Swift.h</key>
 		<data>
-		JQM/TnjvAmLfgumsQCFB10Eewkg=
+		WnDCVQUwlFHo8A5FUK4ZQFX5Lsw=
 		</data>
 		<key>Headers/Wistory.h</key>
 		<data>
@@ -14,27 +14,47 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		aAP/5bT3wck+3W8yObyY9aQD6fc=
+		I4c3ma6ONWA77Izx8qyCbQz89c0=
+		</data>
+		<key>Modules/Wistory.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
+		<data>
+		inXbPFLMJ6o+qsjia014v51JSCA=
+		</data>
+		<key>Modules/Wistory.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
+		<data>
+		jgjWIOPb84tmg1UK60Cd7NAVuPQ=
+		</data>
+		<key>Modules/Wistory.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
+		<data>
+		i3yIjGfUpDHvevxnBOgaHfRnlso=
+		</data>
+		<key>Modules/Wistory.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
+		<data>
+		jgjWIOPb84tmg1UK60Cd7NAVuPQ=
+		</data>
+		<key>Modules/Wistory.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
+		<data>
+		1EynU7PwBesuo2brZS+OezxizGA=
 		</data>
 		<key>Modules/Wistory.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		45VFAG4ohbph1K5RpO0wF0xIi84=
+		inXbPFLMJ6o+qsjia014v51JSCA=
 		</data>
 		<key>Modules/Wistory.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		2Sd/qgQWAiXpUDZiu431GpXW+Sg=
+		kvpQGR9/6Y4bTp503VtZrZVTOak=
 		</data>
 		<key>Modules/Wistory.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		Nz6ACWM7kr2QHWHex7RnjgDrqxw=
+		Pu6kajweqvpKR2MUwB2xQ9zehYQ=
 		</data>
 		<key>Modules/Wistory.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		2Sd/qgQWAiXpUDZiu431GpXW+Sg=
+		kvpQGR9/6Y4bTp503VtZrZVTOak=
 		</data>
 		<key>Modules/Wistory.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		8GY6rMIblPCwzu0byENRS+z7fG8=
+		cE+pL5AcNKZXh0JHkm2uA/B1fQQ=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -107,7 +127,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			F++OBAfQl+UlXBN1C2BWnG0JsYhbZmelot3JP1NVhDs=
+			JqL7fcslEmrsED9sfTibDbGzgesLDkQNDmaLvVIYSOI=
 			</data>
 		</dict>
 		<key>Headers/Wistory.h</key>
@@ -117,39 +137,74 @@
 			F6hsH2xzVmF63/Qb72oB7vZQ6wZZ5otwHSpZU4/Z0q4=
 			</data>
 		</dict>
+		<key>Modules/Wistory.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			zIA70pua8PK8+L/PlVPcCgiiS9momnsb+lZC3kqExqU=
+			</data>
+		</dict>
+		<key>Modules/Wistory.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			vdZIu7hrouia4bdUn2cCwqIJ5bqXrlSPZl2WdCsArLs=
+			</data>
+		</dict>
+		<key>Modules/Wistory.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			QsNySx56JK/FiMOThY+vpCPZYcjS+56aWJPxXq4yYlI=
+			</data>
+		</dict>
+		<key>Modules/Wistory.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			vdZIu7hrouia4bdUn2cCwqIJ5bqXrlSPZl2WdCsArLs=
+			</data>
+		</dict>
+		<key>Modules/Wistory.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			FkFdkXIVQo62I/2/OzB9YCWWaFYvyOovCfso6emd4GA=
+			</data>
+		</dict>
 		<key>Modules/Wistory.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			/sXC35ka7Bz42kFhYCijXKHpOMoEDjI29JyO95UE414=
+			zIA70pua8PK8+L/PlVPcCgiiS9momnsb+lZC3kqExqU=
 			</data>
 		</dict>
 		<key>Modules/Wistory.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			lBZt4uNjotRUxVocK6Cjno/ASVrJrAA1omc8Wx3PWmU=
+			Ppbeb1b18/xgWliRKewrhtINs+VHS6QflfjB+l6vPso=
 			</data>
 		</dict>
 		<key>Modules/Wistory.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			s4JtCSzL4UB8Gj1O2RZ4PJ84ml8xNUetzV98Z5B3x4s=
+			BEdohfOre3vrem7kjzrYY+RzlCx72pfhLFdAmuPf0jk=
 			</data>
 		</dict>
 		<key>Modules/Wistory.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			lBZt4uNjotRUxVocK6Cjno/ASVrJrAA1omc8Wx3PWmU=
+			Ppbeb1b18/xgWliRKewrhtINs+VHS6QflfjB+l6vPso=
 			</data>
 		</dict>
 		<key>Modules/Wistory.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			iVkOHLISg0YFoQhU2MM0+ONZltmN4jJdvu+dCUJKKMc=
+			yVe++h7mRDsf+7N8tAolIxKvNbtMK9bn5QR25pFLfaE=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
