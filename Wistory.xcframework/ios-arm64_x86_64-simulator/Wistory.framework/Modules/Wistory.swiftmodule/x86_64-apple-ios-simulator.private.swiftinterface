@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)
+// swift-compiler-version: Apple Swift version 5.8.1 (swiftlang-5.8.0.124.5 clang-1403.0.22.11.100)
 // swift-module-flags: -target x86_64-apple-ios11.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name Wistory
 // swift-module-flags-ignorable: -enable-bare-slash-regex
 import AVFoundation
@@ -36,7 +36,7 @@ open class SwiftyGifManager {
   @objc optional func gifDidLoop(sender: UIKit.UIImageView)
   @objc optional func gifDidStop(sender: UIKit.UIImageView)
   @objc optional func gifURLDidFinish(sender: UIKit.UIImageView)
-  @objc optional func gifURLDidFail(sender: UIKit.UIImageView, url: Foundation.URL, error: Swift.Error?)
+  @objc optional func gifURLDidFail(sender: UIKit.UIImageView, url: Foundation.URL, error: (any Swift.Error)?)
 }
 extension UIKit.UIImageView {
   @_Concurrency.MainActor(unsafe) public func setImage(_ image: UIKit.UIImage, manager: Wistory.SwiftyGifManager = .defaultManager, loopCount: Swift.Int = -1)
@@ -81,7 +81,7 @@ extension UIKit.UIImageView {
     get
     set
   }
-  @_Concurrency.MainActor(unsafe) public var delegate: Wistory.SwiftyGifDelegate? {
+  @_Concurrency.MainActor(unsafe) public var delegate: (any Wistory.SwiftyGifDelegate)? {
     get
     set
   }
@@ -149,11 +149,11 @@ public protocol RootViewDelegate : AnyObject {
   func onFavorite(id: Swift.String, isFavorite: Swift.Bool)
   func onRelation(id: Swift.String, relation: Swift.String)
   func onPoll(id: Swift.String, snap: Swift.Int, option: Swift.String)
-  func onError(error: Swift.Error)
+  func onError(error: any Swift.Error)
   func dismissed()
 }
 @objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class RootViewController : UIKit.UIViewController {
-  @_Concurrency.MainActor(unsafe) weak public var delegate: Wistory.RootViewDelegate?
+  @_Concurrency.MainActor(unsafe) weak public var delegate: (any Wistory.RootViewDelegate)?
   @_Concurrency.MainActor(unsafe) public init(usageStyle: Wistory.StyleSettings, forcedOpenNewStories: Swift.Bool)
   @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
   @objc deinit
@@ -171,12 +171,12 @@ extension Wistory.RootViewController : UIKit.UICollectionViewDataSource {
   @_Concurrency.MainActor(unsafe) @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, cellForItemAt indexPath: Foundation.IndexPath) -> UIKit.UICollectionViewCell
 }
 public struct SnapModelDTO : Swift.Codable {
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
 }
 public struct SnapModel : Swift.Codable {
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
 }
 public protocol WistoryDelegate : AnyObject {
   func onRead(story: Wistory.SnapModel, isVolume: Swift.Bool?)
@@ -186,11 +186,11 @@ public protocol WistoryDelegate : AnyObject {
   func onFavorite(id: Swift.String, isFavorite: Swift.Bool)
   func onRelation(id: Swift.String, relation: Swift.String)
   func onPoll(id: Swift.String, snap: Swift.Int, option: Swift.String)
-  func onError(error: Swift.Error)
+  func onError(error: any Swift.Error)
   func dismissed()
 }
 open class WistoryBuilder {
-  weak public var delegate: Wistory.WistoryDelegate?
+  weak public var delegate: (any Wistory.WistoryDelegate)?
   public init(with companyToken: Swift.String, registrationId: Swift.String? = nil, usageSettings: Wistory.StyleSettings = .separate, forcedOpenNewStories: Swift.Bool = false, displayTitle: Swift.Bool = true)
   public init(with companyToken: Swift.String, registrationId: Swift.String? = nil, eventId: Swift.String, root: UIKit.UIViewController, displayTitle: Swift.Bool = true)
   public var storiesViewController: Wistory.RootViewController?
